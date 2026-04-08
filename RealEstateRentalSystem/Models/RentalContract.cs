@@ -21,10 +21,10 @@ namespace RealEstateRentalSystem.Models
         public string Notes { get; set; }
         public DateTime CreatedAt { get; set; }
 
-        // Продолжительность аренды в днях
+  
         public int DurationDays => (EndDate - StartDate).Days;
 
-        // Общая стоимость
+       
         public decimal TotalCost => MonthlyPayment * (DurationDays / 30);
     }
     }
