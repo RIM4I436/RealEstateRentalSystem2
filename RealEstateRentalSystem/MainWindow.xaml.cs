@@ -24,7 +24,7 @@ namespace RealEstateRentalSystem
             {
                 if (currentTable == "Properties")
                 {
-                    // Безопасное получение фильтра
+                   
                     string filter = "";
                     if (cmbFilter.SelectedItem != null && cmbFilter.SelectedItem is ComboBoxItem selectedItem)
                     {
@@ -57,7 +57,7 @@ namespace RealEstateRentalSystem
             }
         }
 
-        // Навигация
+        
         private void BtnProperties_Click(object sender, RoutedEventArgs e)
         {
             currentTable = "Properties";
@@ -76,7 +76,7 @@ namespace RealEstateRentalSystem
             LoadData();
         }
 
-        // Поиск и фильтрация
+        
         private void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             LoadData();
@@ -93,7 +93,6 @@ namespace RealEstateRentalSystem
             LoadData();
         }
 
-        // Добавление
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -123,7 +122,7 @@ namespace RealEstateRentalSystem
             }
         }
 
-        // Редактирование
+     
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -156,7 +155,7 @@ namespace RealEstateRentalSystem
             }
         }
 
-        // Удаление
+       
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
             try
