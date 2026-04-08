@@ -9,16 +9,10 @@ namespace RealEstateRentalSystem.Database
 {
     public class DatabaseHelper
     {
-        // ИЗМЕНИТЕ строку подключения под вашу систему!
+       
         private string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=RealEstateRental;Integrated Security=True";
 
-        // Альтернативные строки подключения (раскомментируйте нужную):
-        // Для SQL Server Express: @"Data Source=.\SQLEXPRESS;Initial Catalog=RealEstateRental;Integrated Security=True"
-        // Для SQL Server: @"Data Source=localhost;Initial Catalog=RealEstateRental;Integrated Security=True"
-
-        /// <summary>
-        /// Выполняет SELECT запрос и возвращает DataTable
-        /// </summary>
+      
         public DataTable ExecuteQuery(string query, SqlParameter[] parameters = null)
         {
             try
@@ -44,9 +38,7 @@ namespace RealEstateRentalSystem.Database
             }
         }
 
-        /// <summary>
-        /// Выполняет INSERT/UPDATE/DELETE запрос
-        /// </summary>
+      
         public int ExecuteNonQuery(string query, SqlParameter[] parameters = null)
         {
             try
@@ -69,7 +61,6 @@ namespace RealEstateRentalSystem.Database
             }
         }
 
-        // ========== РАБОТА С ОБЪЕКТАМИ ==========
 
         public DataTable GetAllProperties(string searchText = "", string filterType = "")
         {
@@ -123,7 +114,7 @@ namespace RealEstateRentalSystem.Database
 
         public bool DeleteProperty(int id)
         {
-            // Проверяем, есть ли активные договоры
+            
             string checkQuery = "SELECT COUNT(*) FROM RentalContracts WHERE PropertyId=@Id AND Status='Активен'";
             var count = Convert.ToInt32(ExecuteQuery(checkQuery, new[] { new SqlParameter("@Id", id) }).Rows[0][0]);
             if (count > 0)
@@ -135,7 +126,7 @@ namespace RealEstateRentalSystem.Database
             return ExecuteNonQuery(query, new[] { new SqlParameter("@Id", id) }) > 0;
         }
 
-        // ========== РАБОТА С КЛИЕНТАМИ ==========
+        
 
         public DataTable GetAllClients(string searchText = "")
         {
@@ -191,7 +182,7 @@ namespace RealEstateRentalSystem.Database
             return ExecuteNonQuery(query, new[] { new SqlParameter("@Id", id) }) > 0;
         }
 
-        // ========== РАБОТА С ДОГОВОРАМИ ==========
+       
 
         public DataTable GetAllContracts(string searchText = "")
         {
