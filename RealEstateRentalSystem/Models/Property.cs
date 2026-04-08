@@ -19,7 +19,7 @@ namespace RealEstateRentalSystem.Models
         public string Description { get; set; }
         public DateTime CreatedAt { get; set; }
 
-        // Отображаемый статус для UI
+        
         public string StatusText => IsRented ? "Арендована" : "Свободна";
     }
 }
